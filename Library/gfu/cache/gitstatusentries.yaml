@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 995438498, guid: 68c7e4565cde54155bb78d8e935f1dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cacheType: 5
+  lastUpdatedAtString: 2018-11-27T12:48:17.444-05:00
+  initializedAtString: 2018-11-27T11:21:49.443-05:00
+  entries:
+  - path: Assets/Scenes/Scene_EnJeu.unity
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Scenes/Scene_EnJeu.unity
+    projectPath: Assets/Scenes/Scene_EnJeu.unity
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets/Scripts/Controller/Construction/Construction.cs
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Scripts/Controller/Construction/Construction.cs
+    projectPath: Assets/Scripts/Controller/Construction/Construction.cs
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets/Scripts/Utilities/GestionEconomie.cs
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Scripts/Utilities/GestionEconomie.cs
+    projectPath: Assets/Scripts/Utilities/GestionEconomie.cs
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets/Scripts/Utilities/VariablesGlobales.cs
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Scripts/Utilities/VariablesGlobales.cs
+    projectPath: Assets/Scripts/Utilities/VariablesGlobales.cs
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: "Assets/Sons/Son_ChateauAttaqu\xE9.mp3"
+    fullPath: "/Users/Lucas/Desktop/Beta/Assets/Sons/Son_ChateauAttaqu\xE9.mp3"
+    projectPath: "Assets/Sons/Son_ChateauAttaqu\xE9.mp3"
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: "Assets/Sons/Son_ChateauAttaqu\xE9.mp3.meta"
+    fullPath: "/Users/Lucas/Desktop/Beta/Assets/Sons/Son_ChateauAttaqu\xE9.mp3.meta"
+    projectPath: "Assets/Sons/Son_ChateauAttaqu\xE9.mp3.meta"
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets/Sons/Son_Defaite.mp3
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Sons/Son_Defaite.mp3
+    projectPath: Assets/Sons/Son_Defaite.mp3
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets/Sons/Son_Defaite.mp3.meta
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Sons/Son_Defaite.mp3.meta
+    projectPath: Assets/Sons/Son_Defaite.mp3.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets/Sons/Son_PasAssezOr1.mp3
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Sons/Son_PasAssezOr1.mp3
+    projectPath: Assets/Sons/Son_PasAssezOr1.mp3
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets/Sons/Son_PasAssezOr1.mp3.meta
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Sons/Son_PasAssezOr1.mp3.meta
+    projectPath: Assets/Sons/Son_PasAssezOr1.mp3.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets/Sons/Son_PasAssezOr2.mp3
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Sons/Son_PasAssezOr2.mp3
+    projectPath: Assets/Sons/Son_PasAssezOr2.mp3
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets/Sons/Son_PasAssezOr2.mp3.meta
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Sons/Son_PasAssezOr2.mp3.meta
+    projectPath: Assets/Sons/Son_PasAssezOr2.mp3.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets/Sons/Son_PasAssezOr3.mp3
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Sons/Son_PasAssezOr3.mp3
+    projectPath: Assets/Sons/Son_PasAssezOr3.mp3
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets/Sons/Son_PasAssezOr3.mp3.meta
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Sons/Son_PasAssezOr3.mp3.meta
+    projectPath: Assets/Sons/Son_PasAssezOr3.mp3.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets/Sons/Son_Victoire.mp3
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Sons/Son_Victoire.mp3
+    projectPath: Assets/Sons/Son_Victoire.mp3
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets/Sons/Son_Victoire.mp3.meta
+    fullPath: /Users/Lucas/Desktop/Beta/Assets/Sons/Son_Victoire.mp3.meta
+    projectPath: Assets/Sons/Son_Victoire.mp3.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: ProjectSettings/QualitySettings.asset
+    fullPath: /Users/Lucas/Desktop/Beta/ProjectSettings/QualitySettings.asset
+    projectPath: ProjectSettings/QualitySettings.asset
+    originalPath: 
+    status: 3
+    staged: 0
