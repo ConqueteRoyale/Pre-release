@@ -40,8 +40,11 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(1) && unit.tag == "Friendly")
         {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            LayerMask mask = LayerMask.GetMask("Map");
 
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+
+            if (Physics.Raycast(ray, out hit, 100, mask))
             {
                 agentNav.SetDestination(hit.point);
             }

@@ -374,6 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4599091094192434}
+  - component: {fileID: 114404439494898342}
   m_Layer: 11
   m_Name: Controller Sword
   m_TagString: Untagged
@@ -874,6 +875,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1832392579846806
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4210634320838850}
+  - component: {fileID: 33305988480353862}
+  - component: {fileID: 23672568239664434}
+  - component: {fileID: 136109284851251564}
+  m_Layer: 11
+  m_Name: Cylinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1838331340615146
 GameObject:
   m_ObjectHideFlags: 1
@@ -1320,6 +1339,19 @@ Transform:
   m_Father: {fileID: 4782121207000164}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4210634320838850
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832392579846806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0000031789, y: 0.00000039736, z: 0.0000063578}
+  m_LocalScale: {x: 1.0444646, y: -0.030105576, z: 1.0444646}
+  m_Children: []
+  m_Father: {fileID: 4918972695230746}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4231430344783686
 Transform:
   m_ObjectHideFlags: 1
@@ -1634,8 +1666,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1390061315720660}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -5.4240265, y: 1.9904829, z: -5.4939127}
-  m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
+  m_LocalPosition: {x: -14.812395, y: -0.5988245, z: -19.147224}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4918972695230746}
   m_Father: {fileID: 0}
@@ -1979,6 +2011,7 @@ Transform:
   - {fileID: 4085837154189744}
   - {fileID: 4146062402039186}
   - {fileID: 4860400070528978}
+  - {fileID: 4210634320838850}
   m_Father: {fileID: 4599091094192434}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2302,6 +2335,41 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23672568239664434
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832392579846806}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23684614851485332
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -2428,6 +2496,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467475539459738}
   m_Mesh: {fileID: 4300002, guid: d288a0e4a2d923b46898986e979da643, type: 3}
+--- !u!33 &33305988480353862
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832392579846806}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33363439834526594
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -2598,7 +2673,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95664329179410928}
   unit: {fileID: 0}
-  speed: 8
   viewRadius: 0.2
   viewRadiusAttack: 0.4
   viewAngle: 70
@@ -2620,6 +2694,9 @@ MonoBehaviour:
   speedTarget: 1
   speedRot: {x: 50, y: 0, z: 0}
   moveSpeed: 0.7
+  rotationSpeed: 10
+  canMove: 1
+  AI_Target: {fileID: 0}
 --- !u!114 &114394275476391554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2633,6 +2710,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 195946467274171504}
   animator: {fileID: 95664329179410928}
+--- !u!114 &114404439494898342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390061315720660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5507fae1a68220b40919acc3666e9a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Renderers:
+  - {fileID: 23672568239664434}
 --- !u!114 &114490263823653708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2647,6 +2737,19 @@ MonoBehaviour:
   hoverCircle: {fileID: 0}
   selectionCircle: {fileID: 0}
   unitClassName: 
+--- !u!136 &136109284851251564
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832392579846806}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!136 &136872997043188288
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -3149,15 +3252,15 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
-  m_Acceleration: 15
+  m_Speed: 3.5
+  m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 1500
-  m_StoppingDistance: 0.5
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: -0.1
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
