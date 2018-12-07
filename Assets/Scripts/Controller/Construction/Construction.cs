@@ -84,13 +84,13 @@ public class Construction : MonoBehaviour
         if (currentPlaceableObject != null) {
 	        if(isPlaceable == true)
 	        {
-	            currentPlaceableObject.GetComponent<Outline>().OutlineColor = Color.green;
+	            currentPlaceableObject.GetComponent<Outlines>().OutlineColor = Color.green;
 	        }
 
 	        // Si le bâtiment n'est pas à un emplacement constructible, on affiche un contour rouge
 	        if(isPlaceable == false)
 	        {
-	            currentPlaceableObject.GetComponent<Outline>().OutlineColor = Color.red;
+	            currentPlaceableObject.GetComponent<Outlines>().OutlineColor = Color.red;
 	        }
         }
 
@@ -326,7 +326,7 @@ public class Construction : MonoBehaviour
 
         // On active différents éléments du gameobject
         objet.GetComponent<Collider>().enabled = true;
-        objet.gameObject.GetComponent<Outline>().enabled = false;
+        objet.gameObject.GetComponent<Outlines>().enabled = false;
         // La construction du bâtiment est COMMENCÉE
         GameObject particuleConstru = objet.gameObject.transform.GetChild(0).gameObject; // L'effet de particule de construction
         GameObject canvaConstru = objet.gameObject.transform.GetChild(1).gameObject; // La barre de progression de construction

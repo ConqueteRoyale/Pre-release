@@ -12,6 +12,13 @@ TagManager:
   - Map
   - Building
   - RTSManager
+  - Battle ground
+  - Knight
+  - Player Castle
+  - 'Enemy Castle '
+  - Enemy spawn position
+  - Enemy Castle
+  - Mobile units button
   layers:
   - Default
   - TransparentFX
