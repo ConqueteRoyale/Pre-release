@@ -50,7 +50,6 @@ public class RTSManager : MonoBehaviour {
                 if ((a.GetComponent<Player>() == null))
                 {
                     var go = a.AddComponent<Player>();
-                    a.AddComponent<MapBlip>();
 
                     go.Info = p;
 

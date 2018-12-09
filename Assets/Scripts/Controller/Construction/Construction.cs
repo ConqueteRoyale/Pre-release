@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.AI;
 
 public class Construction : MonoBehaviour
 {
@@ -340,6 +341,7 @@ public class Construction : MonoBehaviour
 
         // La construction du bâtiment est TERMINÉE
         // On désactive les particules et la barre de progrès
+        objet.GetComponent<NavMeshObstacle>().enabled = true;
         particuleConstru.SetActive(false);
         canvaConstru.SetActive(false);
         objet.GetComponent<SpawnUnits>().enabled = true;

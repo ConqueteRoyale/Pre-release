@@ -227,7 +227,6 @@ public class Manager : MonoBehaviour {
 		Time.timeScale = 1;
 		fading = true;
 		
-		GetComponent<CharacterManager>().addCharacterButtons();
 	}
 	
 	//open mission panel to start game

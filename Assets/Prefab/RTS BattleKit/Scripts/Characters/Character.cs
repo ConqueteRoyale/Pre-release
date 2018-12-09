@@ -3,6 +3,12 @@ using System.Collections;
 using UnityEngine.UI; 
 using UnityEngine.AI;
 
+/* ==========================================================================================================================================================================================*/
+/* ==========================================================================================================================================================================================*/
+/* ==============================================================   OPTIMIZED FOR CONQUETE ROTALE   =========================================================================================*/
+/* ==========================================================================================================================================================================================*/
+/* ==========================================================================================================================================================================================*/
+
 public class Character : MonoBehaviour {
 	
 	//variables visible in the inspector
@@ -59,8 +65,10 @@ public class Character : MonoBehaviour {
 		
 		//character is not selected
 		selected = false;
+
 		//selected character is not moving to clicked position
 		goingToClickedPos = false;
+
 		//find navmesh agent component
 		agent = gameObject.GetComponent<NavMeshAgent>();
 		animators = gameObject.GetComponentsInChildren<Animator>();
@@ -75,35 +83,39 @@ public class Character : MonoBehaviour {
 		//set healtbar value
 		healthbar.GetComponent<Slider>().maxValue = lives;
 		startLives = lives;
+
 		//get default stopping distance
 		defaultStoppingDistance = agent.stoppingDistance;
-		
-		//find the castle closest to this character
-		findClosestCastle();
-	
-		//if there's a dust effect (cavalry characters), find and assign it
-		if(transform.Find("dust"))
-			dustEffect = transform.Find("dust").gameObject.GetComponent<ParticleSystem>();
-	
-		//if this is a wizard, start the spawning loop
-		if(wizard)
-			StartCoroutine(spawnSkeletons());
 		
 		area = GameObject.FindObjectOfType<WalkArea>();
 	}
 	
 	void Update(){
 		bool walkRandomly = true;
-		
-		//find closest castle
-		if(castle == null){
-			findClosestCastle();
-		}
-		else{
-			walkRandomly = false;
-		}
-		
-		if(lives != startLives){
+
+        /* ==========================================================================================================================================================================================*/
+        // IDLE ANIMATION FOR UNIT 
+        /* ==========================================================================================================================================================================================*/
+        float velocity = agent.velocity.magnitude;
+        if (velocity <= 0.5f)
+        {
+            for (int i = 0; i < animators.Length; i++)
+            {
+                animators[i].SetBool("Start", false);
+            }
+        } else
+        {
+            for (int i = 0; i < animators.Length; i++)
+            {
+                animators[i].SetBool("Start", true);
+            }
+        }
+
+    
+        /* ==========================================================================================================================================================================================*/
+        // HEALTH BAR FOR UNIT 
+        /* ==========================================================================================================================================================================================*/
+        if (lives != startLives){
 			//only use the healthbar when the character lost some lives
 			if(!health.activeSelf)
 				health.SetActive(true);
@@ -111,38 +123,32 @@ public class Character : MonoBehaviour {
 			health.transform.LookAt(2 * transform.position - Camera.main.transform.position);
 			healthbar.GetComponent<Slider>().value = lives;
 		}
-		
-		//find closest enemy
-		if(currentTarget == null){
+
+        /* ==========================================================================================================================================================================================*/
+        //find closest enemy
+        /* ==========================================================================================================================================================================================*/
+        if (currentTarget == null){
 			findCurrentTarget();	
 		}
 		else{
 			walkRandomly = false;
 		}
-		
-		//if character ran out of lives add blood particles, add gold and destroy character
-		if(lives < 1){
+
+        /* ==========================================================================================================================================================================================*/
+        //if character ran out of lives add blood particles, add gold and destroy character
+        /* ==========================================================================================================================================================================================*/
+        if (lives < 1){
 			StartCoroutine(die());
 		}
-		
-		//play dusteffect when running and stop it when the character is not running
-		if(dustEffect && animators[0].GetBool("Attacking") == false && !dustEffect.isPlaying){
-			dustEffect.Play();
-		}
-		if(dustEffect && dustEffect.isPlaying && animators[0].GetBool("Attacking") == true){
-			dustEffect.Stop();
-		}
-		
-		//check if character must go to a clicked position
-		checkForClickedPosition();
-		
-		if(!goingToClickedPos && walkRandomly){
+
+        //check if character must go to a clicked position
+        checkForClickedPosition();
+
+        if (!goingToClickedPos && walkRandomly){
 			if(area != null){
 				if(agent.stoppingDistance > 2)
 					agent.stoppingDistance = 2;
-			
-				if(randomTarget == Vector3.zero || Vector3.Distance(transform.position, randomTarget) < 3f)
-					randomTarget = getRandomPosition(area);
+
 				
 				if(randomTarget != Vector3.zero){
 					if(animators[0].GetBool("Attacking")){
@@ -232,24 +238,14 @@ public class Character : MonoBehaviour {
 						source.Play();
 					}
 				}
-				
-				//if character is traveling to castle play running animation
-				else if(!wizardSpawns){
-					agent.isStopped = false;
-					
-					foreach(Animator animator in animators){
-						animator.SetBool("Attacking", false);
-					}	
-					
-					if(source.clip != runAudio){
-						source.clip = runAudio;
-						source.Play();
-					}
-				}
 			}
 		}
-		//if character is going to clicked position...
-		else{
+
+        /* ==========================================================================================================================================================================================*/
+        //if character is going to clicked position...
+        /* ==========================================================================================================================================================================================*/
+        else
+        {
 			//if character is close enough to clicked position, let it attack enemies again
 			if(Vector3.Distance(transform.position, targetPosition) < agent.stoppingDistance + 1){
 				goingToClickedPos = false;	
@@ -259,30 +255,36 @@ public class Character : MonoBehaviour {
 			}
 		}
 	}
-	
-	public void findClosestCastle(){
-		//find the castles that should be attacked by this character
-		GameObject[] castles = GameObject.FindGameObjectsWithTag(attackCastleTag);
-		
-		//distance between character and its nearest castle
-		float closestCastle = Mathf.Infinity;
-		
-		foreach(GameObject potentialCastle in castles){
-		//check if there are castles left to attack and check per castle if its closest to this character
-			if(Vector3.Distance(transform.position, potentialCastle.transform.position) < closestCastle && potentialCastle != null){
-			//if this castle is closest to character, set closest distance to distance between character and this castle
-			closestCastle = Vector3.Distance(transform.position, potentialCastle.transform.position);
-			//also set current target to closest target (this castle)
-			castle = potentialCastle;
-			}
-		}	
-		
-		//Define a position to attack the castles(to spread characters when they are attacking the castle)
-		if(castle != null)
-			castleAttackPosition = castle.transform.position;
-	}
-	
-	public void findCurrentTarget(){
+
+    public void findClosestCastle()
+    {
+        //find the castles that should be attacked by this character
+        GameObject[] castles = GameObject.FindGameObjectsWithTag(attackCastleTag);
+
+        //distance between character and its nearest castle
+        float closestCastle = Mathf.Infinity;
+
+        foreach (GameObject potentialCastle in castles)
+        {
+            //check if there are castles left to attack and check per castle if its closest to this character
+            if (Vector3.Distance(transform.position, potentialCastle.transform.position) < closestCastle && potentialCastle != null)
+            {
+                //if this castle is closest to character, set closest distance to distance between character and this castle
+                closestCastle = Vector3.Distance(transform.position, potentialCastle.transform.position);
+                //also set current target to closest target (this castle)
+                castle = potentialCastle;
+            }
+        }
+
+        //Define a position to attack the castles(to spread characters when they are attacking the castle)
+        if (castle != null)
+            castleAttackPosition = castle.transform.position;
+    }
+
+    /* ==========================================================================================================================================================================================*/
+    /* =============================================================== FIND CLOSEST ENEMY  NEED TO MODIFY FOR GAME ==============================================================================*/
+    /* ==========================================================================================================================================================================================*/
+    public void findCurrentTarget(){
 	//find all potential targets (enemies of this character)
 	enemies = GameObject.FindGameObjectsWithTag(attackTag);
 		
@@ -301,109 +303,50 @@ public class Character : MonoBehaviour {
         }
     }	
 	}
-	
-	public Vector3 getRandomPosition(WalkArea area){
-		Vector3 center = area.center;
-		Vector3 bounds = area.area;
-		float yRay = center.y + bounds.y/2f;
-		
-		Vector3 rayStart = new Vector3(center.x + Random.Range(-bounds.x/2f, bounds.x/2f), yRay, center.z + Random.Range(-bounds.z/2f, bounds.z/2f));
-		RaycastHit hit;
-		
-		if(Physics.Raycast(rayStart, -Vector3.up, out hit, bounds.y))
-			return hit.point;
-		
-		return Vector3.zero;
-	}
-	
-	public void checkForClickedPosition(){
-	RaycastHit hit;
-	
-	//if character is selected and right mouse button gets clicked...
-    if(selected && ((Input.GetMouseButtonDown(1) && !GameObject.Find("Mobile")) || (Input.GetMouseButtonDown(0) && GameObject.Find("Mobile") && Mobile.selectionModeMove))){
-    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    if(Physics.Raycast(ray, out hit))
-		//if you clicked battle ground, move character to clicked point and play running animation
-		if(hit.collider.gameObject.CompareTag("Battle ground")){
-		agent.isStopped = false;
-        agent.SetDestination(hit.point);
-		CharacterManager.clickedPos = hit.point;
-		targetPosition = hit.point;
-		goingToClickedPos = true;
-			if(GetComponent<archer>() != null)
-				agent.stoppingDistance = 2;
 
-			foreach(Animator animator in animators){
-				animator.SetBool("Attacking", false);
-			}
+    /* ==========================================================================================================================================================================================*/
+    /* ======================================================================= MOVE THE CHARACTER IN CLICKED POSITION   =========================================================================*/
+    /* ==========================================================================================================================================================================================*/
+    public void checkForClickedPosition(){
+    
+	    RaycastHit hit;
+	
+	    //if character is selected and right mouse button gets clicked...
+        if(selected && (Input.GetMouseButtonDown(1))){
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(Physics.Raycast(ray, out hit))
+		    //if you clicked battle ground, move character to clicked point and play running animation
+		    if(hit.collider.gameObject.CompareTag("Battle ground")){
+                    Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		        agent.isStopped = false;
+                agent.SetDestination(hit.point);
+		        CharacterManager.clickedPos = hit.point;
+		        targetPosition = hit.point;
+		        goingToClickedPos = true;
+			        if(GetComponent<archer>() != null)
+				        agent.stoppingDistance = 2;
+
+			        foreach(Animator animator in animators){
+				        animator.SetBool("Attacking", false);
+                                animator.SetBool("Start", true);
+			        }
 			
-			if(source.clip != runAudio){
-				source.clip = runAudio;
-				source.Play();
-			}
+			        if(source.clip != runAudio){
+				        source.clip = runAudio;
+				        source.Play();
+			        }
 						
-			//set the yellow target position
-			CharacterManager.target.transform.position = hit.point;
-			CharacterManager.target.SetActive(true);
-		}
-    }	
+			        //set the yellow target position
+			        CharacterManager.target.transform.position = hit.point;
+                    CharacterManager.target.SetActive(true);
+		        }
+        }	
 	}
-	
-	//if this is a wizard:
-	IEnumerator spawnSkeletons(){
-		
-		//stop the spawneffect
-		spawnEffect.Stop();
-		
-		//create an infinite loop
-		while(true){
-			
-			//if character is not attacking and there's no target in range...
-			if(animators[0].GetBool("Attacking") == false && ((currentTarget != null && Vector3.Distance(transform.position, currentTarget.transform.position) >= minAttackDistance) || !currentTarget)){
-			//wizard is now spawning
-			wizardSpawns = true;
-			
-			//stop the navmesh agent
-			agent.isStopped = true;
-			
-			//start spawning animation
-			animators[0].SetBool("Spawning", true);
-			//wait 0.5 seconds
-			yield return new WaitForSeconds(0.5f);
-			//play the spawn effect
-			spawnEffect.Play();	
-			
-			//spawn the correct amount of skeletons with some delay
-			for(int i = 0; i < skeletonAmount; i++){
-			spawnSkeleton();
-			yield return new WaitForSeconds(2f / skeletonAmount);
-			}
-			
-			//stop playing the spawneffect
-			spawnEffect.Stop();
-			
-			//wait for 0.5 seconds again
-			yield return new WaitForSeconds(0.5f);
-			
-			//wizard is not spawning skeletons anymore
-			wizardSpawns = false;
-			
-			//stop the spawning animation
-			animators[0].SetBool("Spawning", false);
-			}
-		
-		//short delay before the loop starts again
-		yield return new WaitForSeconds(newSkeletonsWaitTime);
-		}
-	}
-	
-	public void spawnSkeleton(){
-		//instantiate a skeleton character in front of the wizard
-		Vector3 position = new Vector3(transform.position.x + Random.Range(1f, 2f), transform.position.y, transform.position.z + Random.Range(-0.5f, 0.5f));
-		Instantiate(skeleton, position, Quaternion.identity);
-	}
-	
-	public IEnumerator die(){
+
+    /* ==========================================================================================================================================================================================*/
+    /* ========================================================================== WHEN CHARACTER LIFE IS EQUAL TO ZERO ==========================================================================*/
+    /* ==========================================================================================================================================================================================*/
+    public IEnumerator die(){
 		if(ragdoll == null){
 			Vector3 position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
 			ParticleSystem particles = Instantiate(dieParticles, position, transform.rotation) as ParticleSystem;
@@ -414,11 +357,6 @@ public class Character : MonoBehaviour {
 		else{
 			Instantiate(ragdoll, transform.position, transform.rotation);
 		}
-		
-		CharacterManager.gold += addGold;
-			
-		if(gameObject.tag == "Enemy")
-			Manager.enemiesKilled++;
 		
 		foreach(Character character in GameObject.FindObjectsOfType<Character>()){
 			if(character != this)
