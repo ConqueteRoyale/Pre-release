@@ -685,6 +685,7 @@ GameObject:
   - component: {fileID: 136791277672957528}
   - component: {fileID: 82780482302810676}
   - component: {fileID: 114223230958881382}
+  - component: {fileID: 114884487891584294}
   m_Layer: 0
   m_Name: Low poly cavalry
   m_TagString: Knight
@@ -1567,7 +1568,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1574180337108504}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.4621477, y: -0.58571184, z: -7.400678}
+  m_LocalPosition: {x: -0.16962779, y: -0.52408046, z: -2.8110201}
   m_LocalScale: {x: 0.19965777, y: 0.19965777, z: 0.19965777}
   m_Children:
   - {fileID: 4344068817295012}
@@ -3055,6 +3056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderers:
   - {fileID: 23559771701422784}
+  - {fileID: 23282625018092852}
 --- !u!114 &114339564649947390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3161,6 +3163,18 @@ MonoBehaviour:
   skeletonAmount: 0
   newSkeletonsWaitTime: 0
   selectedObject: {fileID: 0}
+--- !u!114 &114884487891584294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574180337108504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70579e98485b73a4aa16ac3194c6e7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitClassName: cavalry
 --- !u!114 &114947574731384536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3488,7 +3502,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}

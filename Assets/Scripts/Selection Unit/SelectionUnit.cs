@@ -28,14 +28,14 @@ public class SelectionUnit : MonoBehaviour
     //Kevin Langlois Les boutons du UI permettent de faire la sélection des différents unités par types
     private void Start()
     {
-        //Button btn5 = btnSelectionArcher.GetComponent<Button>();
+        Button btn5 = btnSelectionArcher.GetComponent<Button>();
         Button btn6 = btnSelectionLancier.GetComponent<Button>();
         Button btn7 = btnSelectionChevalier.GetComponent<Button>();
         Button btn8 = btnSelectionTous.GetComponent<Button>();
 
-        //btn5.onClick.AddListener(delegate { GestionSelectionUnitBtn("archer"); });
-        btn6.onClick.AddListener(delegate { GestionSelectionUnitBtn("lancier"); });
-        btn7.onClick.AddListener(delegate { GestionSelectionUnitBtn("chevalier"); });
+        btn5.onClick.AddListener(delegate { GestionSelectionUnitBtn("archer"); });
+        btn6.onClick.AddListener(delegate { GestionSelectionUnitBtn("cavalry"); });
+        btn7.onClick.AddListener(delegate { GestionSelectionUnitBtn("knight"); });
         btn8.onClick.AddListener(delegate { GestionSelectionUnitBtn("tous"); });
     }
 
@@ -55,44 +55,23 @@ public class SelectionUnit : MonoBehaviour
             {
                 if (selectableObject.unitClassName == "archer")
                 {
-                    /*if (selectableObject.selectionCircle == null)
-                    {
-                        selectableObject.selectionCircle = Instantiate(selectionCirclePrefab);
-                        selectableObject.selectionCircle.transform.SetParent(selectableObject.transform, false);
-                        selectableObject.selectionCircle.transform.eulerAngles = new Vector3(90, 0, 0);
-
-                        // Associé un tag Friendly au personnage sélectionné
-                        selectableObject.transform.tag = "Friendly";
-
-                        // Change la grosseur du cercle
-                        leProjecteur = selectableObject.selectionCircle.GetComponent<Projector>();
-                        leProjecteur.orthographicSize = newScale;
-
-                    }*/
+                    Character character = selectableObject.GetComponent<Character>();
+                    character.selected = true;
+                    character.selectedObject.SetActive(true);
                 }
             }
         }
+        
 
         if (Input.GetKeyDown(selectChevalier))
         {
             foreach (var selectableObject in FindObjectsOfType<SelectableUnit>())
             {
-                if (selectableObject.unitClassName == "chevalier")
+                if (selectableObject.unitClassName == "cavalry")
                 {
-                    /*if (selectableObject.selectionCircle == null)
-                    {
-                        selectableObject.selectionCircle = Instantiate(selectionCirclePrefab);
-                        selectableObject.selectionCircle.transform.SetParent(selectableObject.transform, false);
-                        selectableObject.selectionCircle.transform.eulerAngles = new Vector3(90, 0, 0);
-
-                        // Associé un tag Friendly au personnage sélectionné
-                        selectableObject.transform.tag = "Friendly";
-
-                        // Change la grosseur du cercle
-                        leProjecteur = selectableObject.selectionCircle.GetComponent<Projector>();
-                        leProjecteur.orthographicSize = newScale;
-
-                    }*/
+                    Character character = selectableObject.GetComponent<Character>();
+                    character.selected = true;
+                    character.selectedObject.SetActive(true);
                 }
             }
         }
@@ -101,22 +80,11 @@ public class SelectionUnit : MonoBehaviour
         {
             foreach (var selectableObject in FindObjectsOfType<SelectableUnit>())
             {
-                if (selectableObject.unitClassName == "lancier")
+                if (selectableObject.unitClassName == "knight")
                 {
-                    /*if (selectableObject.selectionCircle == null)
-                    {
-                        selectableObject.selectionCircle = Instantiate(selectionCirclePrefab);
-                        selectableObject.selectionCircle.transform.SetParent(selectableObject.transform, false);
-                        selectableObject.selectionCircle.transform.eulerAngles = new Vector3(90, 0, 0);
-
-                        // Associé un tag Friendly au personnage sélectionné
-                        selectableObject.transform.tag = "Friendly";
-
-                        // Change la grosseur du cercle
-                        leProjecteur = selectableObject.selectionCircle.GetComponent<Projector>();
-                        leProjecteur.orthographicSize = newScale;
-
-                    }*/
+                    Character character = selectableObject.GetComponent<Character>();
+                    character.selected = true;
+                    character.selectedObject.SetActive(true);
                 }
             }
         }
@@ -126,20 +94,9 @@ public class SelectionUnit : MonoBehaviour
             foreach (var selectableObject in FindObjectsOfType<SelectableUnit>())
             {
 
-                /*if (selectableObject.selectionCircle == null)
-                {
-                    selectableObject.selectionCircle = Instantiate(selectionCirclePrefab);
-                    selectableObject.selectionCircle.transform.SetParent(selectableObject.transform, false);
-                    selectableObject.selectionCircle.transform.eulerAngles = new Vector3(90, 0, 0);
-
-                    // Associé un tag Friendly au personnage sélectionné
-                    selectableObject.transform.tag = "Friendly";
-
-                    // Change la grosseur du cercle
-                    leProjecteur = selectableObject.selectionCircle.GetComponent<Projector>();
-                    leProjecteur.orthographicSize = newScale;
-
-                }*/
+                Character character = selectableObject.GetComponent<Character>();
+                character.selected = true;
+                character.selectedObject.SetActive(true);
 
 
             }
@@ -150,26 +107,15 @@ public class SelectionUnit : MonoBehaviour
     private void GestionSelectionUnitBtn(string type)
     {
         //Chevalier
-        if (type == "chevalier")
+        if (type == "knight")
         {
             foreach (var selectableObject in FindObjectsOfType<SelectableUnit>())
             {
-                if (selectableObject.unitClassName == "chevalier")
+                if (selectableObject.unitClassName == "knight")
                 {
-                    /*if (selectableObject.selectionCircle == null)
-                    {
-                        selectableObject.selectionCircle = Instantiate(selectionCirclePrefab);
-                        selectableObject.selectionCircle.transform.SetParent(selectableObject.transform, false);
-                        selectableObject.selectionCircle.transform.eulerAngles = new Vector3(90, 0, 0);
-
-                        // Associé un tag Friendly au personnage sélectionné
-                        selectableObject.transform.tag = "Friendly";
-
-                        // Change la grosseur du cercle
-                        leProjecteur = selectableObject.selectionCircle.GetComponent<Projector>();
-                        leProjecteur.orthographicSize = newScale;
-
-                    }*/
+                    Character character = selectableObject.GetComponent<Character>();
+                    character.selected = true;
+                    character.selectedObject.SetActive(true);
                 }
             }
         }
@@ -180,44 +126,22 @@ public class SelectionUnit : MonoBehaviour
             {
                 if (selectableObject.unitClassName == "archer")
                 {
-                    /*if (selectableObject.selectionCircle == null)
-                    {
-                        selectableObject.selectionCircle = Instantiate(selectionCirclePrefab);
-                        selectableObject.selectionCircle.transform.SetParent(selectableObject.transform, false);
-                        selectableObject.selectionCircle.transform.eulerAngles = new Vector3(90, 0, 0);
-
-                        // Associé un tag Friendly au personnage sélectionné
-                        selectableObject.transform.tag = "Friendly";
-
-                        // Change la grosseur du cercle
-                        leProjecteur = selectableObject.selectionCircle.GetComponent<Projector>();
-                        leProjecteur.orthographicSize = newScale;
-
-                    }*/
+                    Character character = selectableObject.GetComponent<Character>();
+                    character.selected = true;
+                    character.selectedObject.SetActive(true);
                 }
             }
         }
         //Lancier
-        if (type == "lancier")
+        if (type == "cavalry")
         {
             foreach (var selectableObject in FindObjectsOfType<SelectableUnit>())
             {
-                if (selectableObject.unitClassName == "lancier")
+                if (selectableObject.unitClassName == "cavalry")
                 {
-                    /*if (selectableObject.selectionCircle == null)
-                    {
-                        selectableObject.selectionCircle = Instantiate(selectionCirclePrefab);
-                        selectableObject.selectionCircle.transform.SetParent(selectableObject.transform, false);
-                        selectableObject.selectionCircle.transform.eulerAngles = new Vector3(90, 0, 0);
-
-                        // Associé un tag Friendly au personnage sélectionné
-                        selectableObject.transform.tag = "Friendly";
-
-                        // Change la grosseur du cercle
-                        leProjecteur = selectableObject.selectionCircle.GetComponent<Projector>();
-                        leProjecteur.orthographicSize = newScale;
-
-                    }*/
+                    Character character = selectableObject.GetComponent<Character>();
+                    character.selected = true;
+                    character.selectedObject.SetActive(true);
                 }
             }
         }
@@ -227,20 +151,9 @@ public class SelectionUnit : MonoBehaviour
             foreach (var selectableObject in FindObjectsOfType<SelectableUnit>())
             {
 
-                /*if (selectableObject.selectionCircle == null)
-                {
-                    selectableObject.selectionCircle = Instantiate(selectionCirclePrefab);
-                    selectableObject.selectionCircle.transform.SetParent(selectableObject.transform, false);
-                    selectableObject.selectionCircle.transform.eulerAngles = new Vector3(90, 0, 0);
-
-                    // Associé un tag Friendly au personnage sélectionné
-                    selectableObject.transform.tag = "Friendly";
-
-                    // Change la grosseur du cercle
-                    leProjecteur = selectableObject.selectionCircle.GetComponent<Projector>();
-                    leProjecteur.orthographicSize = newScale;
-
-                }*/
+                Character character = selectableObject.GetComponent<Character>();
+                character.selected = true;
+                character.selectedObject.SetActive(true);
 
 
             }
