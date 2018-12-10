@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class SelectableUnit : MonoBehaviour {
 
+    public GameObject hoverCircle;
+    public GameObject selectionCircle;
+
     public string unitClassName;
 }
