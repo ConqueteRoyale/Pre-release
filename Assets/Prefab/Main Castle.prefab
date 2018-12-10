@@ -840,6 +840,7 @@ GameObject:
   - component: {fileID: 114335006747128614}
   - component: {fileID: 114402252299620088}
   - component: {fileID: 114594186812789448}
+  - component: {fileID: 114128614426297518}
   m_Layer: 12
   m_Name: Main Castle
   m_TagString: Building
@@ -14246,6 +14247,38 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114128614426297518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1336233752851366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 10
+    i1: 57
+    i2: 203
+    i3: 72
+    i4: 99
+    i5: 134
+    i6: 24
+    i7: 148
+    i8: 232
+    i9: 141
+    i10: 2
+    i11: 233
+    i12: 236
+    i13: 244
+    i14: 96
+    i15: 219
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114142976167855246
 MonoBehaviour:
   m_ObjectHideFlags: 1
