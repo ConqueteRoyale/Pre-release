@@ -653,6 +653,7 @@ GameObject:
   - component: {fileID: 114243427516848558}
   - component: {fileID: 114575627314408022}
   - component: {fileID: 114055309288108594}
+  - component: {fileID: 114651655450965046}
   m_Layer: 12
   m_Name: Barrack_Version3
   m_TagString: Building
@@ -2929,6 +2930,38 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114651655450965046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1808380437370524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 208
+    i1: 145
+    i2: 219
+    i3: 36
+    i4: 86
+    i5: 109
+    i6: 246
+    i7: 36
+    i8: 11
+    i9: 99
+    i10: 239
+    i11: 3
+    i12: 100
+    i13: 10
+    i14: 39
+    i15: 90
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!136 &136479976180433518
 CapsuleCollider:
   m_ObjectHideFlags: 1

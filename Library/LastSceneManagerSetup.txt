@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Scene_EnJeu.unity
+- path: Assets/Scenes/Scene_EnJeu_Multijoueur.unity
   isLoaded: 1
   isActive: 1
